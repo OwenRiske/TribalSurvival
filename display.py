@@ -92,7 +92,7 @@ def rect(colour, x, y, width, height, border):
 
 
 # make button
-def button(message, size, textsize, x, y, colour1, colour2):
+def button(message, size, textsize, x, y, colour1):
     image_resize("button_layout.png", size, size // 2)
     button = image("image/newbutton_layout.png", x - size // 2, y - size // 4)
     text(message, textsize // 6, x, y, colour1)
@@ -192,7 +192,7 @@ def multi_text(size, x, y, colour, message1, message2, message3, message4, messa
 
 # background function
 def background(image):
-    image_resize(image, settings.width.settings.height)
+    image_resize(image, settings.width, settings.height)
     image(f"new{image}", settings.width // 2, settings.height // 2)
 
 
