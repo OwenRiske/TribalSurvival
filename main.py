@@ -21,8 +21,16 @@ while True:
     screen = settings.screen
     screen.fill(display.colour("white"))
 
+    display.background("background.png")
+
+
+    display.image(f"image/newbackground.png", 0, 0)
+
+
+
     display.text(f"People: {peopleAmount}",settings.width//20,settings.width//7, settings.height//10,(0,0,0))
     display.text(f"Coconut: {coconutAmount}", settings.width//20,settings.width-settings.width//7, settings.height//10,(0,0,0))
+
 
 
 

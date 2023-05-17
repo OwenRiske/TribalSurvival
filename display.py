@@ -54,19 +54,19 @@ def input_box(width, height, x, y):
 
 
 # setup image
-def image(im, x, y):
+def image(im,x,y):
     image = pygame.image.load(im)
     imageRect = image.get_rect()
-    imageRect.x = x
-    imageRect.y = y
+    imageRect.x=x
+    imageRect.y=y
     settings.screen.blit(image, imageRect)
     return imageRect
 
 
 # resize image
-def image_resize(image, width, height):
+def image_resize(image,width,height):
     image1 = Image.open(f"image/{image}")
-    image1 = image1.resize((int(width), int(height)), Image.ANTIALIAS)
+    image1 = image1.resize((int(width),int(height)), Image.ANTIALIAS)
     image1.save(fp=f"image/new{image}")
     return image1
 
@@ -192,8 +192,8 @@ def multi_text(size, x, y, colour, message1, message2, message3, message4, messa
 
 # background function
 def background(image):
-    image_resize(image, settings.width, settings.height)
-    image(f"new{image}", settings.width // 2, settings.height // 2)
+    image_resize(f"{image}", settings.width, settings.width)
+    image(f"image/new{image}", 0, 0)
 
 
 # line function
