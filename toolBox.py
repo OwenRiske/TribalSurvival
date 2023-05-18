@@ -1,4 +1,6 @@
 import random
+import display
+import settings
 
 
 def feed(peopleAmount, coconutCount):
@@ -23,7 +25,6 @@ def buyPerson(peopleAmount, coconutCount, boatAmount, blanketAmount, medicineAmo
             activeSwordAmount += 1
         return peopleAmount+1, coconutCount-1, boatAmount,blanketAmount,medicineAmount,activeSwordAmount
     return peopleAmount,coconutCount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount
-
 
 
 
