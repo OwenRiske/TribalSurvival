@@ -18,6 +18,7 @@ spearAmount=0
 netAmount=0
 
 resourceWindowOpen=False
+trade=False
 
 pygame.init()
 
@@ -35,13 +36,15 @@ while True:
 
 
 
-    buyPerson = display.button("Buy Person", settings.width // 2.4, settings.width // 3,
-                               settings.width - settings.width // 1.3, settings.height // 1.2, (0, 0, 0))
-    doneTurn = display.button("Done", settings.width // 2.4, settings.width // 3, settings.width // 1.3,
-                              settings.height // 1.2, (0, 0, 0))
+    buyPerson = display.button("Buy Person", settings.width*0.3225, settings.width // 4,settings.width*0.17, settings.height*0.885, (0, 0, 0))
+    trade= display.button("Trade", settings.width*0.3225, settings.width // 4,settings.width*0.5, settings.height*0.885, (0, 0, 0))
+    doneTurn = display.button("Done", settings.width *0.3225, settings.width // 4, settings.width*0.83,settings.height *0.885, (0, 0, 0))
 
     if resourceWindowOpen:
-        resourceWindow = display.rect((165,85,25), settings.width // 2, settings.height // 2, settings.width - settings.width // 25, settings.height - settings.height // 25, 0)
+        #resource window
+        resourceWindow = display.rect((165,85,25), settings.width*0.5, settings.height*0.5, settings.width * 0.96, settings.height*0.96, 0)
+        display.rect((0,0,0), settings.width*0.5, settings.height*0.5, settings.width * 0.96, settings.height*0.96, settings.width//400)
+        #display resource quantities
         display.text(f"Boats: {boatAmount}", settings.width // 20, settings.width-settings.width//6.5, settings.height // 12,(255, 255, 255))
         display.text(f"Blankets: {blanketAmount}", settings.width // 20, settings.width-settings.width // 5.3, settings.height // 6.75,(255, 255, 255))
         display.text(f"Medicines: {medicineAmount}", settings.width // 20, settings.width-settings.width // 5, settings.height // 4.75,(255, 255, 255))
@@ -51,13 +54,12 @@ while True:
         display.text(f"Super Coconut Trees: {superTreeAmount}", settings.width // 20, settings.width-settings.width // 3, settings.height // 2.15,(255, 255, 255))
         display.text(f"Spears: {spearAmount}", settings.width // 20, settings.width-settings.width // 6, settings.height //1.9,(255, 255, 255))
         display.text(f"Nets: {netAmount}", settings.width // 20, settings.width-settings.width // 7.5, settings.height // 1.675,(255, 255, 255))
-
-
-
-
-
     else:
-        resourceButton=display.button("Check Resources", settings.width//2.5,settings.width//5,settings.width//1.255, settings.height//7, (0,0,0))
+        #display button for the resource window
+        resourceButton=display.button("Check Resources", settings.width *0.3225, settings.width//5, settings.width*0.83, settings.height*0.125, (0,0,0))
+
+
+
 
     display.text(f"People: {peopleAmount}", settings.width // 20, settings.width // 6.5, settings.height // 12, (0, 0, 0))
     display.text(f"Coconut: {coconutAmount}", settings.width // 20, settings.width // 6.5, settings.height // 6.75,(0, 0, 0))
@@ -67,12 +69,16 @@ while True:
             if buyPerson.collidepoint(event.pos):
                 peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount)
             elif doneTurn.collidepoint(event.pos):
-                peopleAmount,coconutAmount=disaster.randomDisaster(peopleAmount,coconutAmount,boatAmount,blanketAmount,activeSwordAmount+unactiveSwordAmount,treeAmount,superTreeAmount)
+                #peopleAmount,coconutAmount=disaster.randomDisaster(peopleAmount,coconutAmount,boatAmount,blanketAmount,activeSwordAmount+unactiveSwordAmount,treeAmount,superTreeAmount)
                 peopleAmount,coconutAmount=toolBox.feed(peopleAmount,coconutAmount)
             elif resourceWindowOpen==False and resourceButton.collidepoint(event.pos):
                 resourceWindowOpen=True
             elif resourceWindowOpen and resourceWindow.collidepoint(event.pos)==False:
                 resourceWindowOpen=False
-                print("hello")
+                trade=False
+            elif trade.collidepoint(event.pos):
+                resourceWindowOpen=True
+                trade=True
+
 
     pygame.display.flip()
