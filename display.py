@@ -192,12 +192,7 @@ def multi_text(size, x, y, colour, message1, message2, message3, message4, messa
     if message1 != "" and message2 != "" and message3 != "" and message4 != "" and message5 != "" and message6 != "" and message7 != "" and message8 != "" and message9 != "" and message10 != "" and message11 != "":
         text("ERROR", size, x, y, colour)
 
-def exitableWindow(colour,mousePos):
-    window =rect(colour(colour),settings.width//2,settings.height//2,settings.width-settings.width//25,settings.height-settings.height//25,0)
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if(window.collidepoint(event.pos)):
-                return false
+
 
 
 
