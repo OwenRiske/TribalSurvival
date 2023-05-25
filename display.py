@@ -73,7 +73,7 @@ def image_resize(image,width,height):
 
 # setup text
 def text(message, size, x, y, colour):
-    font = pygame.font.Font('freesansbold.ttf', size)
+    font = pygame.font.Font('freesansbold.ttf', int(size))
     text = font.render(message, True, colour)
     textRect = text.get_rect()
     textRect.center = (x, y)
@@ -84,7 +84,7 @@ def text(message, size, x, y, colour):
 def rect(colour, x, y, width, height, border):
     if border > 0:
         rectangle = pygame.draw.rect(settings.screen, colour,
-                                     pygame.Rect(x - width // 2, y - height // 2, width, height), border)
+                                     pygame.Rect(x - width // 2, y - height // 2, width, height), int(border))
     else:
         rectangle = pygame.draw.rect(settings.screen, colour,
                                      pygame.Rect(x - width // 2, y - height // 2, width, height))
