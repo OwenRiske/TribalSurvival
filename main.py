@@ -4,33 +4,37 @@ import toolBox
 import disaster
 import display
 import settings
+import generator
 
+turn=1
+
+#starting resources
 peopleAmount=2
 coconutAmount=3
-boatAmount=1
+boatAmount=0
 medicineAmount=0
 blanketAmount=0
 activeSwordAmount=0
 unactiveSwordAmount=0
-treeAmount=0
+treeAmount=1
 superTreeAmount=0
 spearAmount=0
 netAmount=0
 
-resourceWindowOpen=False
-tradeWindowOpen=False
-
 
 pygame.init()
 
+
+display.image_resize("background.png",settings.width,settings.height)
+
 while True:
     # set background
-    screen = settings.screen
-    screen.fill(display.colour("white"))
-
-    display.background("background.png")
+    display.image("image/newbackground.png",0,0)
 
 
+
+#test
+    tree=generator("tree", 1,1)
 
 
 
@@ -40,31 +44,12 @@ while True:
     buyPerson = display.button("Buy Person", settings.width*0.3225, settings.width // 4,settings.width*0.17, settings.height*0.885, (0, 0, 0))
     tradeButton= display.button("Trade", settings.width*0.3225, settings.width // 4,settings.width*0.5, settings.height*0.885, (0, 0, 0))
     doneTurn = display.button("Done", settings.width *0.3225, settings.width // 4, settings.width*0.83,settings.height *0.885, (0, 0, 0))
+    # display button for the resource window
+    resourceButton = display.button("Check Resources", settings.width * 0.3225, settings.width // 5,
+                                    settings.width * 0.83, settings.height * 0.125, (0, 0, 0))
 
-    if resourceWindowOpen:
-        #resource window
-        window = display.rect((165,85,25), settings.width*0.5, settings.height*0.5, settings.width * 0.96, settings.height*0.96, 0)
-        display.rect((0,0,0), settings.width*0.5, settings.height*0.5, settings.width * 0.96, settings.height*0.96, settings.width//400)
-        #display resource quantities
-        toolBox.resourcesForWindow(boatAmount,blanketAmount,medicineAmount,activeSwordAmount,unactiveSwordAmount,treeAmount,superTreeAmount,spearAmount,netAmount)
-    else:
 
-        #display button for the resource window
-        resourceButton=display.button("Check Resources", settings.width *0.3225, settings.width//5, settings.width*0.83, settings.height*0.125, (0,0,0))
-
-    display.text(f"People: {peopleAmount}", settings.width*0.05, settings.width*0.15384, settings.height*0.08333,
-                 (0, 0, 0))
-    display.text(f"Coconut: {coconutAmount}", settings.width*0.05, settings.width*0.15384, settings.height*0.148148,
-                 (0, 0, 0))
-
-    if tradeWindowOpen:
-        #trade window
-        window = display.rect((165, 85, 25), settings.width * 0.5, settings.height * 0.5, settings.width * 0.96,
-                              settings.height * 0.96, 0)
-        display.rect((0, 0, 0), settings.width * 0.5, settings.height * 0.5, settings.width * 0.96,
-                     settings.height * 0.96, settings.width*0.0025)
-
-        tradeWindowOpen=toolBox.tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,activeSwordAmount+unactiveSwordAmount,treeAmount,superTreeAmount,spearAmount, netAmount)
+    toolBox.peopleAndCoconuts(peopleAmount, coconutAmount)
 
 
 
@@ -76,13 +61,11 @@ while True:
             elif doneTurn.collidepoint(event.pos):
                 #peopleAmount,coconutAmount=disaster.randomDisaster(peopleAmount,coconutAmount,boatAmount,blanketAmount,activeSwordAmount+unactiveSwordAmount,treeAmount,superTreeAmount)
                 peopleAmount,coconutAmount=toolBox.feed(peopleAmount,coconutAmount)
-            elif resourceWindowOpen==False and resourceButton.collidepoint(event.pos):
-                resourceWindowOpen=True
-            elif resourceWindowOpen or tradeWindowOpen and window.collidepoint(event.pos)==False:
-                resourceWindowOpen=False
-                tradeWindowOpen=False
-            elif tradeWindowOpen==False and tradeButton.collidepoint(event.pos):
-                tradeWindowOpen=True
+
+            elif resourceButton.collidepoint(event.pos):
+                toolBox.resourcesForWindow(peopleAmount, coconutAmount, boatAmount, blanketAmount, medicineAmount, activeSwordAmount, unactiveSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount)
+            elif tradeButton.collidepoint(event.pos):
+                peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,activeSwordAmount,treeAmount,superTreeAmount,spearAmount,netAmount=toolBox.tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,unactiveSwordAmount+activeSwordAmount,treeAmount,superTreeAmount,spearAmount,netAmount)
 
 
     pygame.display.flip()
