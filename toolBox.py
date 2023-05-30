@@ -5,10 +5,16 @@ import pygame
 import display
 import settings
 
-def generateCoconuts(generators):
-    coconuts=0
-    for generator in generators:
-        coconuts+=generator.turnGoneBy()
+def generateCoconuts(coconutAmount, treeAmount, superTreeAmount, spearAmount, netAmount, turn):
+    if whenDividingIsItAWholeNum(turn,settings.treeTurnsForYeild):
+        coconutAmount+=settings.treeYeild*treeAmount
+    elif whenDividingIsItAWholeNum(turn,settings.superTreeTurnsForYeild):
+        coconutAmount+=settings.superTreeYeild*superTreeAmount
+    elif whenDividingIsItAWholeNum(turn,settings.spearTurnsForYeild):
+        coconutAmount+=settings.spearYeild*spearAmount
+    elif whenDividingIsItAWholeNum(turn,settings.netTurnsForYeild):
+        coconutAmount+=settings.netYeild*netAmount
+    return coconutAmount
 
 
 def feed(peopleAmount, coconutCount):
@@ -167,6 +173,12 @@ def resourcesForWindow(peopleAmount, coconutAmount, boatAmount, blanketAmount, m
                 return
 
         pygame.display.flip()
+
+def whenDividingIsItAWholeNum(input, numCheckingFor):
+    if input//numCheckingFor == input/numCheckingFor:
+        return True
+    return False
+
 
 
 def tradeAI(resourcesGiving, resourcesGetting):

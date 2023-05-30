@@ -18,4 +18,14 @@ swordValue=3
 spearValue=3
 netValue=3
 
+#generator information
+treeTurnsForYeild=1
+treeYeild=1
+superTreeTurnsForYeild=1
+superTreeYeild=2
+spearTurnsForYeild=2
+spearYeild=2
+netTurnsForYeild=3
+netYeild=3
+
 

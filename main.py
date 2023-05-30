@@ -1,10 +1,8 @@
 import pygame
 
 import toolBox
-import disaster
 import display
 import settings
-import generator
 
 turn=1
 
@@ -22,6 +20,8 @@ spearAmount=0
 netAmount=0
 
 
+turn=1
+
 pygame.init()
 
 
@@ -30,14 +30,6 @@ display.image_resize("background.png",settings.width,settings.height)
 while True:
     # set background
     display.image("image/newbackground.png",0,0)
-
-
-
-#test
-    tree=generator("tree", 1,1)
-
-
-
 
 
 
@@ -61,6 +53,8 @@ while True:
             elif doneTurn.collidepoint(event.pos):
                 #peopleAmount,coconutAmount=disaster.randomDisaster(peopleAmount,coconutAmount,boatAmount,blanketAmount,activeSwordAmount+unactiveSwordAmount,treeAmount,superTreeAmount)
                 peopleAmount,coconutAmount=toolBox.feed(peopleAmount,coconutAmount)
+                coconutAmount=toolBox.generateCoconuts(coconutAmount,treeAmount,superTreeAmount,spearAmount,netAmount,turn)
+                turn+=1
 
             elif resourceButton.collidepoint(event.pos):
                 toolBox.resourcesForWindow(peopleAmount, coconutAmount, boatAmount, blanketAmount, medicineAmount, activeSwordAmount, unactiveSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount)
