@@ -5,6 +5,8 @@ height=width*0.75
 
 screen=pygame.display.set_mode((width,height))
 
+#increased likelyhood of trade with a boat
+likelyHoodOfTradeWithBoat=1
 
 #resource value in trade
 peopleValue=2
@@ -27,5 +29,17 @@ spearTurnsForYeild=2
 spearYeild=2
 netTurnsForYeild=3
 netYeild=3
+
+#disaster information
+peopleKilledInBearAttack=1
+bearAttackLikelyHood=1
+treeDiseaseLikelyhood=1
+fishDiseaseLikelyhood=1
+animalDiseaseLikelyhood=1
+volcanoLikelyhood=1
+coldNightLikelyhood=1
+clearDayLikelyhood=1
+
+
 
 

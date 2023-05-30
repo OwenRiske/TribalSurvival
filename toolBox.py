@@ -4,17 +4,24 @@ import pygame
 
 import display
 import settings
+import disaster
 
-def generateCoconuts(coconutAmount, treeAmount, superTreeAmount, spearAmount, netAmount, turn):
-    if whenDividingIsItAWholeNum(turn,settings.treeTurnsForYeild):
+def generateCoconuts(coconutAmount, treeAmount, superTreeAmount, spearAmount, netAmount, turn, disasters):
+    if whenDividingIsItAWholeNum(turn,settings.treeTurnsForYeild) and disasters.count("tree disease")>1:
         coconutAmount+=settings.treeYeild*treeAmount
-    elif whenDividingIsItAWholeNum(turn,settings.superTreeTurnsForYeild):
+    elif whenDividingIsItAWholeNum(turn,settings.superTreeTurnsForYeild) and disasters.count("tree disease")>1:
         coconutAmount+=settings.superTreeYeild*superTreeAmount
-    elif whenDividingIsItAWholeNum(turn,settings.spearTurnsForYeild):
+    elif whenDividingIsItAWholeNum(turn,settings.spearTurnsForYeild) and disasters.count("animal disease")>1:
         coconutAmount+=settings.spearYeild*spearAmount
-    elif whenDividingIsItAWholeNum(turn,settings.netTurnsForYeild):
+    elif whenDividingIsItAWholeNum(turn,settings.netTurnsForYeild) and disasters.count("fish disease")>1:
         coconutAmount+=settings.netYeild*netAmount
-    return coconutAmount
+
+    #remove disease disasters
+    disaster.removeDisasterFromTheArray(disasters,"tree disease")
+    disaster.removeDisasterFromTheArray(disasters, "animal disease")
+    disaster.removeDisasterFromTheArray(disasters, "fish disease")
+
+    return coconutAmount, disasters
 
 
 def feed(peopleAmount, coconutCount):
@@ -182,7 +189,7 @@ def whenDividingIsItAWholeNum(input, numCheckingFor):
 
 
 def tradeAI(resourcesGiving, resourcesGetting):
-    likelyHoodOfTrade=tradeValueFromArray(resourcesGiving)-tradeValueFromArray(resourcesGetting)
+    likelyHoodOfTrade=tradeValueFromArray(resourcesGiving)-tradeValueFromArray(resourcesGetting)-settings.likelyHoodOfTradeWithBoat
 
     if likelyHoodOfTrade<0:
         likelyHoodOfTrade=0
@@ -212,6 +219,16 @@ def tradeValueFromArray(inputArray):
 
 def tradeValue(peopleAmount, coconutAmount, treeAmount, superTreeAmount, boatAmount, blanketAmount, medicineAmount, swordAmount, spearAmount, netAmount):
     return peopleAmount*settings.peopleValue+coconutAmount*settings.coconutValue+treeAmount*settings.treeValue+superTreeAmount*settings.superTreeValue+boatAmount*settings.boatValue+blanketAmount*settings.blanketValue+medicineAmount+swordAmount*settings.swordValue+spearAmount*settings.spearValue+netAmount*settings.netValue
+
+
+def removeAllFromArray(array, elementToBeRemoved):
+    tempArray=array.remove(elementToBeRemoved)
+    while tempArray!=array:
+        array=tempArray
+        tempArray = array.remove(elementToBeRemoved)
+
+    return array
+
 
 def absoluteValue(input):
     if(input<0):

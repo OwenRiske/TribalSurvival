@@ -1,36 +1,42 @@
 import random
+import settings
 
 
-def volcano(peopleAmount, boatAmount):
-    if (boatAmount<=0):
+def volcano(peopleAmount, boatAmount, disasters):
+    if (boatAmount<=0 and disasters.count("volcano")>0):
         return 0
-    return peopleAmount
+    return peopleAmount, disasters
 
-def coldNight(peoplAmount, blanketAmount):
-    if(blanketAmount<=0):
-        return 0
+def coldNight(peoplAmount, blanketAmount, disasters):
+    if blanketAmount<=peoplAmount//2 and disasters.count("cold night")>0:
+        return peoplAmount//(2*disasters.count("cold night"))
     return peoplAmount
 
-def bearAttack(peopleAmount, swordAmount):
-    if(swordAmount<=0):
-        return 0
-    return peopleAmount
-
-def treeDisease(treeAmount, superTreeAmount):
-    return (treeAmount*-1)+(superTreeAmount*-2)
+def bearAttack(peopleAmount, swordAmount, disasters):
+    if disasters.count("bear attack")>0 and swordAmount<=0:
+        return peopleAmount-disasters.count("bear attack"), removeDisasterFromTheArray(disasters, "bear attack")
 
 
-def randomDisaster(peopleAmount, coconutAmount,boatAmount, blanketAmount, swordAmount, treeAmount, superTreeAmount):
-    event= random.randint(1, 3)
+def removeDisasterFromTheArray(disasters, disasterToBeRemoved):
+    if disasters.count(disasterToBeRemoved)!=0:
+        print(disasters.remove(6))
+        return disasters.remove(disasterToBeRemoved)
+    return disasters
 
-    if event==1:
-        peopleAmount=volcano(peopleAmount, boatAmount)
+def disaster():
+    disaster=random.randint(1,settings.volcanoLikelyhood+settings.bearAttackLikelyHood+settings.coldNightLikelyhood+settings.clearDayLikelyhood+settings.treeDiseaseLikelyhood+settings.animalDiseaseLikelyhood+settings.fishDiseaseLikelyhood)
 
-    elif event==2:
-        peopleAmount=coldNight(peopleAmount,blanketAmount)
-    elif event==3:
-        peopleAmount=bearAttack(peopleAmount,swordAmount)
-    elif event==4:
-        coconutAmount+=treeDisease(treeAmount,superTreeAmount)
-
-    return peopleAmount, coconutAmount
+    if disaster<=settings.volcanoLikelyhood:
+        return "volcano"
+    elif disaster<=settings.bearAttackLikelyHood+settings.volcanoLikelyhood:
+        return "bear attack"
+    elif disaster<=settings.coldNightLikelyhood+settings.bearAttackLikelyHood+settings.volcanoLikelyhood:
+        return "cold night"
+    elif disaster<=settings.treeDiseaseLikelyhood+settings.coldNightLikelyhood+settings.bearAttackLikelyHood+settings.volcanoLikelyhood:
+        return "tree disease"
+    elif disaster<=settings.fishDiseaseLikelyhood+settings.treeDiseaseLikelyhood+settings.coldNightLikelyhood+settings.bearAttackLikelyHood+settings.volcanoLikelyhood:
+        return "fish disease"
+    elif disaster<=settings.animalDiseaseLikelyhood+settings.fishDiseaseLikelyhood+settings.treeDiseaseLikelyhood+settings.coldNightLikelyhood+settings.bearAttackLikelyHood+settings.volcanoLikelyhood:
+        return "animal disease"
+    else:
+        return "clear day"
