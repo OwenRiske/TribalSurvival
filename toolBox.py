@@ -17,9 +17,9 @@ def generateCoconuts(coconutAmount, treeAmount, superTreeAmount, spearAmount, ne
         coconutAmount+=settings.netYeild*netAmount
 
     #remove disease disasters
-    disaster.removeDisasterFromTheArray(disasters,"tree disease")
-    disaster.removeDisasterFromTheArray(disasters, "animal disease")
-    disaster.removeDisasterFromTheArray(disasters, "fish disease")
+    disaster.removeDisaster("tree disease",disasters)
+    disaster.removeDisaster("animal disease",disasters)
+    disaster.removeDisaster("fish disease",disasters)
 
     return coconutAmount, disasters
 

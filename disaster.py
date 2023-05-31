@@ -14,18 +14,19 @@ def coldNight(peoplAmount, blanketAmount, disasters):
 
 def bearAttack(peopleAmount, swordAmount, disasters):
     if disasters.count("bear attack")>0 and swordAmount<=0:
-        return peopleAmount-disasters.count("bear attack"), removeDisasterFromTheArray(disasters, "bear attack")
+        return peopleAmount-disasters.count("bear attack")
+    return peopleAmount
 
 
-def removeDisasterFromTheArray(disasters, disasterToBeRemoved):
-    if disasters.count(disasterToBeRemoved)!=0:
-        print(disasters.remove(6))
-        return disasters.remove(disasterToBeRemoved)
+def removeDisaster(disasterToBeRemoved, disasters):
+    if disasters.count(disasterToBeRemoved):
+        disasters.remove(disasterToBeRemoved)
+
     return disasters
 
 def disaster():
     disaster=random.randint(1,settings.volcanoLikelyhood+settings.bearAttackLikelyHood+settings.coldNightLikelyhood+settings.clearDayLikelyhood+settings.treeDiseaseLikelyhood+settings.animalDiseaseLikelyhood+settings.fishDiseaseLikelyhood)
-
+    print(disaster)
     if disaster<=settings.volcanoLikelyhood:
         return "volcano"
     elif disaster<=settings.bearAttackLikelyHood+settings.volcanoLikelyhood:
