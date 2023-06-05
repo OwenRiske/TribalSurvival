@@ -214,3 +214,20 @@ def circle(radius, thickness, centerX, centerY, colour):
     pygame.draw.circle(settings.screen,
                        colour, (centerX, centerY), radius, thickness)
 
+
+def adjustableNum(messageTitle,message, y, textColour):
+    text(messageTitle,settings.width * 0.025, settings.width * 0.5, y-settings.height * 0.05,textColour)
+
+    text(message, settings.width * 0.05, settings.width * 0.5,y, textColour)
+    smaller=button("<", settings.width * 0.1, settings.width * 0.25,settings.width * 0.375, y, (0, 0, 0))
+    bigger=button(">", settings.width * 0.1, settings.width * 0.25,settings.width * 0.625, y, (0, 0, 0))
+    return smaller, bigger
+
+def adjustableNumButtonCollidePoint(biggerButton, smallerButton, numToBeChanged, event):
+    if smallerButton.collidepoint(event.pos):
+        numToBeChanged -= 1
+    elif biggerButton.collidepoint(event.pos):
+        numToBeChanged += 1
+
+    return numToBeChanged
+
