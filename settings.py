@@ -4,7 +4,7 @@ import File
 settingFile=File.file("settings")
 options=File.read_file("settings")
 print(options)
-width=int(options[0])
+width=1080
 height=width*0.75
 
 screen=pygame.display.set_mode((width,height))
@@ -47,8 +47,8 @@ clearDayLikelyhood=int(options[27])
 
 
 def changeScreenSize():
-    screen = pygame.display.set_mode((width,height))
+    pygame.display.set_mode((width,height))
 
 def save():
-    File.
-    settingFile.writelines(f"{width}\n{likelyHoodOfTradeWithBoat}\n{peopleValue}\n{coconutValue}\n{treeValue}\n{superTreeValue}\n{boatValue}\n{blanketValue}\n{medicineValue}\n{swordValue}\n{spearValue}\n{netValue}\n{treeTurnsForYeild}\n{treeYeild}\n{superTreeTurnsForYeild}\n{superTreeYeild}\n{spearTurnsForYeild}\n{spearYeild}\n{netTurnsForYeild}\n{netYeild}\n{peopleKilledInBearAttack}\n{bearAttackLikelyHood}\n{treeDiseaseLikelyhood}\n{fishDiseaseLikelyhood}\n{animalDiseaseLikelyhood}\n{volcanoLikelyhood}\n{coldNightLikelyhood}\n{clearDayLikelyhood}")
+    settingFile.truncate(0)
+    settingFile.writelines(f"{likelyHoodOfTradeWithBoat}\n{peopleValue}\n{coconutValue}\n{treeValue}\n{superTreeValue}\n{boatValue}\n{blanketValue}\n{medicineValue}\n{swordValue}\n{spearValue}\n{netValue}\n{treeTurnsForYeild}\n{treeYeild}\n{superTreeTurnsForYeild}\n{superTreeYeild}\n{spearTurnsForYeild}\n{spearYeild}\n{netTurnsForYeild}\n{netYeild}\n{peopleKilledInBearAttack}\n{bearAttackLikelyHood}\n{treeDiseaseLikelyhood}\n{fishDiseaseLikelyhood}\n{animalDiseaseLikelyhood}\n{volcanoLikelyhood}\n{coldNightLikelyhood}\n{clearDayLikelyhood}")

@@ -9,3 +9,8 @@ def file(File_name):
 def read_file(file):
     f = open(f"{file}.txt", "r")
     return f.read().split("\n")
+
+
+#clear all information that is stored
+def clear(clearFile):
+    clearFile.truncate(0)
