@@ -95,21 +95,21 @@ def tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmo
 
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if giveTree.collidepoint(event.pos):
+                if giveTree.collidepoint(event.pos) and treeAmount>0:
                     giveInTrade.append("tree")
-                elif giveSuperTree.collidepoint(event.pos):
+                elif giveSuperTree.collidepoint(event.pos) and superTreeAmount>0:
                     giveInTrade.append("super tree")
-                elif giveBoat.collidepoint(event.pos):
+                elif giveBoat.collidepoint(event.pos) and boatAmount>0:
                     giveInTrade.append("boat")
-                elif giveMedicine.collidepoint(event.pos):
+                elif giveMedicine.collidepoint(event.pos) and medicineAmount>0:
                     giveInTrade.append("medicine")
-                elif giveBlanket.collidepoint(event.pos):
+                elif giveBlanket.collidepoint(event.pos) and blanketAmount>0:
                     giveInTrade.append("blanket")
-                elif giveSword.collidepoint(event.pos):
+                elif giveSword.collidepoint(event.pos) and swordAmount>0:
                     giveInTrade.append("sword")
-                elif giveSpear.collidepoint(event.pos):
+                elif giveSpear.collidepoint(event.pos) and spearAmount>0:
                     giveSpear.append("spear")
-                elif giveNet.collidepoint(event.pos):
+                elif giveNet.collidepoint(event.pos) and netAmount>0:
                     giveInTrade.append("net")
                 elif takeTree.collidepoint(event.pos):
                     takeInTrade.append("tree")

@@ -71,6 +71,9 @@ def settingAlterMenu():
     while True:
         settings.screen.fill((250, 250, 250))
 
+        exitButton=exitSquare(settings.width*0.045,settings.height*0.05,settings.width*0.05,(250,250,250))
+
+
         if optionMenu=="Misc":
             smallerBoatLikelyHoodButton, biggerBoatLikelyHoodButton=display.adjustableNum("Boat Trade Likely Hood", str(settings.likelyHoodOfTradeWithBoat),settings.height*0.075,(0,0,0))
         elif optionMenu=="Disasters":
@@ -140,16 +143,73 @@ def settingAlterMenu():
 
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                display.adjustableNumButtonCollidePoint(smallerBoatLikelyHoodButton,biggerBoatLikelyHoodButton,settings.likelyHoodOfTradeWithBoat,event)
-
-
                 if TradeValueButton.collidepoint(event.pos):
-                    optionMenu="Trade"
+                    optionMenu = "Trade"
                 elif DisastersButton.collidepoint(event.pos):
-                    optionMenu="Disasters"
+                    optionMenu = "Disasters"
                 elif MiscButton.collidepoint(event.pos):
-                    optionMenu="Misc"
+                    optionMenu = "Misc"
                 elif YeildButton.collidepoint(event.pos):
-                    optionMenu="Yeild"
+                    optionMenu = "Yeild"
+
+                elif exitButton.collidepoint(event.pos):
+                    return
+
+
+                settings.likelyHoodOfTradeWithBoat=display.adjustableNumButtonCollidePoint(smallerBoatLikelyHoodButton,biggerBoatLikelyHoodButton,settings.likelyHoodOfTradeWithBoat,event)
+
+                settings.peopleKilledInBearAttack=display.adjustableNumButtonCollidePoint(smallerBearKillHoodButton, biggerBearKillHoodButton,settings.peopleKilledInBearAttack, event)
+
+                settings.bearAttackLikelyHood=display.adjustableNumButtonCollidePoint(smallerBearLikelyHoodButton,biggerBearLikelyHoodButton,settings.bearAttackLikelyHood,event)
+
+                settings.volcanoLikelyhood=display.adjustableNumButtonCollidePoint(smallerVolcanoLikelyHoodButton,biggerVolcanoLikelyHoodButton,settings.volcanoLikelyhood,event)
+
+                settings.coldNightLikelyhood=display.adjustableNumButtonCollidePoint(smallerColdNightLikelyHoodButton,biggerColdNightLikelyHoodButton,settings.coldNightLikelyhood,event)
+
+                settings.treeDiseaseLikelyhood=display.adjustableNumButtonCollidePoint(smallerTreeDiseaseLikelyHoodButton,biggerTreeDiseaseLikelyHoodButton,settings.treeDiseaseLikelyhood,event)
+
+                settings.fishDiseaseLikelyhood=display.adjustableNumButtonCollidePoint(smallerFishDiseaseLikelyHoodButton,biggerFishDiseaseLikelyHoodButton,settings.fishDiseaseLikelyhood,event)
+
+                settings.animalDiseaseLikelyhood=display.adjustableNumButtonCollidePoint(smallerAnimalDiseaseLikelyHoodButton, biggerAnimalDiseaseLikelyHoodButton,settings.animalDiseaseLikelyhood, event)
+
+                settings.peopleValue=display.adjustableNumButtonCollidePoint(smallerPeopleValue,biggerPeopleValue,settings.peopleValue,event)
+
+                settings.coconutValue=display.adjustableNumButtonCollidePoint(smallerCoconutValue,biggerCoconutValue,settings.coconutValue,event)
+
+                settings.boatValue=display.adjustableNumButtonCollidePoint(smallerBoatValue,biggerBoatValue,settings.boatValue,event)
+
+                settings.medicineValue=display.adjustableNumButtonCollidePoint(smallerMedicineValue,biggerMedicineValue, settings.medicineValue, event)
+
+                settings.blanketValue=display.adjustableNumButtonCollidePoint(smallerBlanketValue,biggerBlanketValue,settings.blanketValue,event)
+
+                settings.swordValue=display.adjustableNumButtonCollidePoint(smallerSwordValue, biggerSwordValue,settings.swordValue,event)
+
+                settings.spearValue=display.adjustableNumButtonCollidePoint(smallerSpearValue,biggerSpearValue,settings.spearValue,event)
+
+                settings.netValue=display.adjustableNumButtonCollidePoint(smallerNetValue,biggerNetValue,settings.netValue,event)
+
+                settings.treeValue=display.adjustableNumButtonCollidePoint(smallerTreeValue,biggerTreeValue,settings.treeValue)
+
+                settings.superTreeValue=display.adjustableNumButtonCollidePoint(smallerSuperTreeValue,biggerSuperTreeValue,settings.superTreeValue,event)
+
+                settings.treeYeild=display.adjustableNumButtonCollidePoint(smallerTreeYeild,biggerTreeYeild,settings.treeYeild,event)
+
+                settings.treeTurnsForYeild=display.adjustableNumButtonCollidePoint(smallerTreeTurn,biggerTreeTurn,settings.treeTurnsForYeild,event)
+
+                settings.superTreeYeild=display.adjustableNumButtonCollidePoint(smallerSuperTreeYeild,biggerSuperTreeYeild,settings.superTreeYeild,event)
+
+                settings.superTreeTurnsForYeild=display.adjustableNumButtonCollidePoint(smallerSuperTreeTurn,biggerSuperTreeTurn,settings.superTreeTurnsForYeild, event)
+
+                settings.spearYeild=display.adjustableNumButtonCollidePoint(smallerSpearYeild,biggerSpearYeild,settings.spearYeild,event)
+
+                settings.spearTurnsForYeild=display.adjustableNumButtonCollidePoint(smallerSpearTurn,biggerSpearTurn, settings.spearYeild,event)
+
+                settings.netYeild=display.adjustableNumButtonCollidePoint(smallerNetYeild,biggerNetYeild,settings.netYeild,event)
+
+                settings.netTurnsForYeild=display.adjustableNumButtonCollidePoint(smallerNetTurn,biggerNetTurn,settings.netTurnsForYeild,event)
+
+                menuPage=display.adjustableNumButtonCollidePointWithMax(smallerPage, biggerPage,menuPage,2, event)
+
+
 
         pygame.display.flip()

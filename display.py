@@ -223,10 +223,18 @@ def adjustableNum(messageTitle,message, y, textColour):
     bigger=button(">", settings.width * 0.1, settings.width * 0.25,settings.width * 0.625, y, (0, 0, 0))
     return smaller, bigger
 
-def adjustableNumButtonCollidePoint(biggerButton, smallerButton, numToBeChanged, event):
-    if smallerButton.collidepoint(event.pos):
+def adjustableNumButtonCollidePoint(smallerButton, biggerButton, numToBeChanged, event):
+    if smallerButton.collidepoint(event.pos) and numToBeChanged>0:
         numToBeChanged -= 1
     elif biggerButton.collidepoint(event.pos):
+        numToBeChanged += 1
+
+    return numToBeChanged
+
+def adjustableNumButtonCollidePointWithMax(smallerButton, biggerButton, numToBeChanged, max, event):
+    if smallerButton.collidepoint(event.pos) and numToBeChanged>0:
+        numToBeChanged -= 1
+    elif biggerButton.collidepoint(event.pos) and numToBeChanged<max:
         numToBeChanged += 1
 
     return numToBeChanged
