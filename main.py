@@ -8,8 +8,13 @@ import options
 
 quitting=False
 pygame.init()
+
+display.image_resize(f"MainMenuBackground.png", settings.width * 2, settings.height)
+
 while True:
     settings.screen.fill((225,225,225))
+
+    display.image(f"image/newMainMenuBackground.png",0, 0)
     startButton = display.button("START", settings.width * 0.3225, settings.width*0.25, settings.width * 0.5, settings.height * 0.375, (0, 0, 0))
     optionButton = display.button("OPTIONS", settings.width * 0.3225, settings.width*0.25, settings.width * 0.5, settings.height * 0.6, (0, 0, 0))
     quitButton = display.button("QUIT", settings.width * 0.3225, settings.width*0.25, settings.width * 0.5, settings.height * 0.825, (0, 0, 0))
