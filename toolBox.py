@@ -1,21 +1,27 @@
 #Owen Riske
 
 import random
-
 import pygame
-
 import display
 import settings
 import disaster
 
+#generates coconuts based on which generators the user has
 def generateCoconuts(coconutAmount, treeAmount, superTreeAmount, spearAmount, netAmount, turn, disasters):
-    if whenDividingIsItAWholeNum(turn,settings.treeTurnsForYeild) and disasters.count("tree disease")>1:
+    #get tree yeild if correct turn and no tree disease
+    if whenDividingIsItAWholeNum(turn,settings.treeTurnsForYeild) and disasters.count("tree disease")<1:
         coconutAmount+=settings.treeYeild*treeAmount
-    elif whenDividingIsItAWholeNum(turn,settings.superTreeTurnsForYeild) and disasters.count("tree disease")>1:
+
+    #get tree yeild if correct turn and no super tree disease
+    elif whenDividingIsItAWholeNum(turn,settings.superTreeTurnsForYeild) and disasters.count("tree disease")<1:
         coconutAmount+=settings.superTreeYeild*superTreeAmount
-    elif whenDividingIsItAWholeNum(turn,settings.spearTurnsForYeild) and disasters.count("animal disease")>1:
+
+    # get tree yeild if correct turn and no spear disease
+    elif whenDividingIsItAWholeNum(turn,settings.spearTurnsForYeild) and disasters.count("animal disease")<1:
         coconutAmount+=settings.spearYeild*spearAmount
-    elif whenDividingIsItAWholeNum(turn,settings.netTurnsForYeild) and disasters.count("fish disease")>1:
+
+    #get tree yeild if correct turn and no net disease
+    elif whenDividingIsItAWholeNum(turn,settings.netTurnsForYeild) and disasters.count("fish disease")<1:
         coconutAmount+=settings.netYeild*netAmount
 
     #remove disease disasters
@@ -26,26 +32,49 @@ def generateCoconuts(coconutAmount, treeAmount, superTreeAmount, spearAmount, ne
     return coconutAmount, disasters
 
 
+#remove required amounts based on the people amount and coconut amount
 def feed(peopleAmount, coconutCount):
+    #if there is more people then coconuts
     if(peopleAmount>coconutCount):
+        #then remove the left over people
         peopleAmount-=peopleAmount-coconutCount
+        #set coconut amount to 0
         coconutCount=0
     else:
+        #otherwise subtract peopleamount from coconut amoutn
         coconutCount-=peopleAmount
     return peopleAmount, coconutCount
 
-def buyPerson(peopleAmount, coconutCount, boatAmount, blanketAmount, medicineAmount, activeSwordAmount):
-
+def buyPerson(peopleAmount, coconutCount, boatAmount, blanketAmount, medicineAmount, activeSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount):
+    #if have enough coconuts to buy person then
     if(coconutCount>=1):
-        card=random.randint(1,4)
+        #get random resource
+        card=random.randint(1,8)
+        #boat
         if(card==1):
             boatAmount+=1
+        #blanket
         elif(card==2):
             blanketAmount+=1
+        #medicine
         elif (card == 3):
             medicineAmount += 1
+        #sword
         elif (card == 4):
             activeSwordAmount += 1
+        #tree
+        elif (card==5):
+            treeAmount+=1
+        #super tree
+        elif (card==6):
+            superTreeAmount+=1
+        #spear
+        elif (card==7):
+            spearAmount+=1
+        #net
+        elif (card==8):
+            netAmount+=1
+        #return the resources and the people and coconuts
         return peopleAmount+1, coconutCount-1, boatAmount,blanketAmount,medicineAmount,activeSwordAmount
     return peopleAmount,coconutCount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount
 
@@ -72,6 +101,7 @@ def tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmo
         giveSpear=display.button("Give Spear",settings.width*0.225,settings.width//5,settings.width*0.62,settings.height*0.7075,(0,0,0))
         giveNet=display.button("Give Net",settings.width*0.225,settings.width//4,settings.width*0.855,settings.height*0.7075,(0,0,0))
 
+        #take resource buttons
         takeBoat = display.button("Take Boat", settings.width * 0.225, settings.width // 5, settings.width * 0.149,
                                   settings.height * 0.25, (0, 0, 0))
         takeSword = display.button("Take Sword", settings.width * 0.225, settings.width // 5, settings.width * 0.385,

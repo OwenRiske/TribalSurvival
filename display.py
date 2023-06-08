@@ -57,7 +57,7 @@ def input_box(width, height, x, y):
 
 # setup image
 def image(im,x,y):
-    image = pygame.image.load(im)
+    image = pygame.image.load(f"image/{im}")
     imageRect = image.get_rect()
     imageRect.x=x
     imageRect.y=y
@@ -96,7 +96,7 @@ def rect(colour, x, y, width, height, border):
 # make button
 def button(message, size, textsize, x, y, colour1):
     image_resize("button_layout.png", size, size // 2)
-    button = image("image/newbutton_layout.png", x - size // 2, y - size // 4)
+    button = image("newbutton_layout.png", x - size // 2, y - size // 4)
     text(message, textsize // 6, x, y, colour1)
     return button
 
@@ -106,7 +106,7 @@ def button(message, size, textsize, x, y, colour1):
 # clickable image
 def clickable_image(Image, message, size, textsize, x, y, colour):
     image_resize(f"{Image}", size, size // 2)
-    button = image(f'image/new{Image}', x - size // 2, y - size // 4)
+    button = image(f'new{Image}', x - size // 2, y - size // 4)
     text(message, textsize // 6, x, y + size // 3, colour)
     return button
 
@@ -114,7 +114,7 @@ def clickable_image(Image, message, size, textsize, x, y, colour):
 # set logo and game name
 def pygame_present(logo, name):
     image_resize(logo, 32, 32)
-    Logo = pygame.image.load(f"image/{logo}")
+    Logo = pygame.image.load(f"{logo}")
     pygame.display.set_icon(Logo)
     pygame.display.set_caption(name)
 
@@ -203,7 +203,7 @@ def multi_text(size, x, y, colour, message1, message2, message3, message4, messa
 # background function
 def background(backgroundImage):
     image_resize(f"{backgroundImage}", settings.width, settings.width)
-    image(f"image/new{backgroundImage}", 0, 0)
+    image(f"new{backgroundImage}", 0, 0)
 
 
 # line function

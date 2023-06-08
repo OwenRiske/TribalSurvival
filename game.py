@@ -25,7 +25,7 @@ def startGame():
     netAmount=0
 
     #makes it so the player gets a random resource
-    peopleAmount,coconutAmount,boatAmount,blanketAmount,netAmount,activeSwordAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,netAmount,activeSwordAmount)
+    peopleAmount,coconutAmount,boatAmount,blanketAmount,netAmount,activeSwordAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,netAmount,activeSwordAmount, treeAmount,superTreeAmount,spearAmount,netAmount)
 
     disasters=[]
 
@@ -34,11 +34,9 @@ def startGame():
     pygame.init()
 
 
-    display.image_resize("background.png",settings.width,settings.height)
-
     while True:
         # set background
-        display.image("image/newbackground.png",0,0)
+        display.background("newbackground.png")
 
 
 
@@ -59,7 +57,7 @@ def startGame():
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if buyPerson.collidepoint(event.pos):
-                    peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount)
+                    peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount)
                 elif doneTurn.collidepoint(event.pos):
                     #disasters execpt for bear attack
                     #for every 2 people that doesn't have a blanket one will die but if everyone has a blanket it gets removed
