@@ -92,80 +92,111 @@ def tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmo
         display.text("GIVE",settings.width//12,settings.width*0.5,settings.height*0.575,(0,0,0))
         display.text("TAKE",settings.width//12,settings.width*0.5,settings.height*0.1,(0,0,0))
         #give resource buttons
-        giveBoat=display.button("Give Boat",settings.width*0.225,settings.width//5,settings.width*0.149,settings.height*0.88,(0,0,0))
-        giveSword=display.button("Give Sword",settings.width*0.225,settings.width//5,settings.width*0.385,settings.height*0.88,(0,0,0))
-        giveBlanket=display.button("Give Blanket",settings.width*0.225,settings.width//5,settings.width*0.62,settings.height*0.88,(0,0,0))
-        giveMedicine=display.button("Give Medicine",settings.width*0.225,settings.width//6,settings.width*0.855,settings.height*0.88,(0,0,0))
-        giveTree=display.button("Give Tree",settings.width*0.225,settings.width//5,settings.width*0.149,settings.height*0.7075,(0,0,0))
-        giveSuperTree=display.button("Give Super Tree",settings.width*0.225,settings.width//7,settings.width*0.385,settings.height*0.7075,(0,0,0))
-        giveSpear=display.button("Give Spear",settings.width*0.225,settings.width//5,settings.width*0.62,settings.height*0.7075,(0,0,0))
-        giveNet=display.button("Give Net",settings.width*0.225,settings.width//4,settings.width*0.855,settings.height*0.7075,(0,0,0))
+        giveBoat=display.button("Give Boat",settings.width*0.1775,settings.width*0.2,settings.width*0.125,settings.height*0.88,(0,0,0))
+        giveSword=display.button("Give Sword",settings.width*0.1775,settings.width*0.182,settings.width*0.31,settings.height*0.88,(0,0,0))
+        giveBlanket=display.button("Give Blanket",settings.width*0.1775,settings.width*0.16,settings.width*0.495,settings.height*0.88,(0,0,0))
+        giveMedicine=display.button("Give Medicine",settings.width*0.1775,settings.width*0.145,settings.width*0.685,settings.height*0.88,(0,0,0))
+        giveCoconut=display.button("Give Coconut",settings.width*0.1775,settings.width*0.145,settings.width*0.875,settings.height*0.88,(0,0,0))
+        giveTree=display.button("Give Tree",settings.width*0.1775,settings.width*0.2,settings.width*0.125,settings.height*0.7075,(0,0,0))
+        giveSuperTree=display.button("Give Super Tree",settings.width*0.1775,settings.width*0.125,settings.width*0.31,settings.height*0.7075,(0,0,0))
+        giveSpear=display.button("Give Spear",settings.width*0.1775,settings.width*0.175,settings.width*0.495,settings.height*0.7075,(0,0,0))
+        giveNet=display.button("Give Net",settings.width*0.1775,settings.width*0.175,settings.width*0.685,settings.height*0.7075,(0,0,0))
+        givePerson=display.button("Give Person",settings.width*0.1775,settings.width*0.145,settings.width*0.875,settings.height*0.7075,(0,0,0))
+
+
+        #giveCoconut=display
 
         #take resource buttons
-        takeBoat = display.button("Take Boat", settings.width * 0.225, settings.width // 5, settings.width * 0.149,
-                                  settings.height * 0.25, (0, 0, 0))
-        takeSword = display.button("Take Sword", settings.width * 0.225, settings.width // 5, settings.width * 0.385,
-                                   settings.height * 0.25, (0, 0, 0))
-        takeBlanket = display.button("Take Blanket", settings.width * 0.225, settings.width // 5, settings.width * 0.62,
-                                     settings.height * 0.25, (0, 0, 0))
-        takeMedicine = display.button("Take Medicine", settings.width * 0.225, settings.width // 6, settings.width * 0.855,
-                                      settings.height * 0.25, (0, 0, 0))
-        takeTree = display.button("Take Tree", settings.width * 0.225, settings.width // 5, settings.width * 0.149,
-                                  settings.height * 0.425, (0, 0, 0))
-        takeSuperTree = display.button("Take Super Tree", settings.width * 0.225, settings.width // 7,
-                                       settings.width * 0.385, settings.height * 0.425, (0, 0, 0))
-        takeSpear = display.button("Take Spear", settings.width * 0.225, settings.width // 5, settings.width * 0.62,
-                                   settings.height * 0.425, (0, 0, 0))
-        takeNet = display.button("Take Net", settings.width * 0.225, settings.width // 4, settings.width * 0.855,
-                                 settings.height * 0.425, (0, 0, 0))
+        takeBoat = display.button("Take Boat", settings.width * 0.1775, settings.width*0.2, settings.width * 0.125,settings.height * 0.25, (0, 0, 0))
+        takeSword = display.button("Take Sword", settings.width * 0.1775, settings.width*0.182, settings.width * 0.31,settings.height * 0.25, (0, 0, 0))
+        takeBlanket = display.button("Take Blanket", settings.width * 0.1775, settings.width*0.16, settings.width * 0.495,  settings.height * 0.25, (0, 0, 0))
+        takeMedicine = display.button("Take Medicine", settings.width * 0.1775, settings.width*0.145, settings.width * 0.685,   settings.height * 0.25, (0, 0, 0))
+        takeCoconut=display.button("Give Coconut",settings.width*0.1775,settings.width*0.145,settings.width*0.875,settings.height*0.25,(0,0,0))
+        takeTree = display.button("Take Tree", settings.width * 0.1775, settings.width*0.2, settings.width * 0.125,settings.height * 0.425, (0, 0, 0))
+        takeSuperTree = display.button("Take Super Tree", settings.width * 0.1775, settings.width*0.125,    settings.width * 0.31, settings.height * 0.425, (0, 0, 0))
+        takeSpear = display.button("Take Spear", settings.width * 0.1775, settings.width*0.175, settings.width * 0.495,settings.height * 0.425, (0, 0, 0))
+        takeNet = display.button("Take Net", settings.width * 0.1775, settings.width*0.175, settings.width * 0.685,settings.height * 0.425, (0, 0, 0))
+        takePerson=display.button("Take Person",settings.width*0.1775,settings.width*0.145,settings.width*0.875,settings.height*0.425,(0,0,0))
 
-        #reset button
-        resetButton=display.button("Reset Trade", settings.width * 0.2, settings.width // 6, settings.width * 0.855,
-                                 settings.height * 0.1, (0, 0, 0))
-        tradeButton=display.button("Trade", settings.width * 0.2, settings.width // 6, settings.width * 0.15,
-                                 settings.height * 0.1, (0, 0, 0))
+        #reset trade button
+        resetButton = display.button("Reset Trade", settings.width * 0.2, settings.width // 6, settings.width * 0.855,settings.height * 0.1, (0, 0, 0))
+
+        #proceed with trade button
+        tradeButton=display.button("Trade", settings.width * 0.2, settings.width // 6, settings.width * 0.15,settings.height * 0.1, (0, 0, 0))
 
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
+                #add tree to being given in trade
                 if giveTree.collidepoint(event.pos) and treeAmount>0:
                     giveInTrade.append("tree")
+                #add super tree to being given in trade
                 elif giveSuperTree.collidepoint(event.pos) and superTreeAmount>0:
                     giveInTrade.append("super tree")
+                #add boat to being given in trade
                 elif giveBoat.collidepoint(event.pos) and boatAmount>0:
                     giveInTrade.append("boat")
+                #add medicine to being given in trade
                 elif giveMedicine.collidepoint(event.pos) and medicineAmount>0:
                     giveInTrade.append("medicine")
+                # add blanket to being given in trade
                 elif giveBlanket.collidepoint(event.pos) and blanketAmount>0:
                     giveInTrade.append("blanket")
+                # add sword to being given in trade
                 elif giveSword.collidepoint(event.pos) and swordAmount>0:
                     giveInTrade.append("sword")
+                # add spear to being given in trade
                 elif giveSpear.collidepoint(event.pos) and spearAmount>0:
                     giveSpear.append("spear")
+                # add net to being given in trade
                 elif giveNet.collidepoint(event.pos) and netAmount>0:
                     giveInTrade.append("net")
+                # add people to being given in trade
+                elif givePerson.collidepoint(event.pos) and peopleAmount>0:
+                    giveInTrade.append("people")
+                # add coconut to being given in trade
+                elif giveCoconut.collidepoint(event.pos) and coconutAmount>0:
+                    giveInTrade.append("coconut")
+                # add tree to being taken in trade
                 elif takeTree.collidepoint(event.pos):
                     takeInTrade.append("tree")
+                # add super tree to being taken in trade
                 elif takeSuperTree.collidepoint(event.pos):
                     takeInTrade.append("super tree")
+                # add medicine to being taken in trade
                 elif takeMedicine.collidepoint(event.pos):
                     takeInTrade.append("medicine")
+                # add blanket to being taken in trade
                 elif takeBlanket.collidepoint(event.pos):
                     takeInTrade.append("blanket")
+                # add boat to being taken in trade
                 elif takeBoat.collidepoint(event.pos):
                     takeInTrade.append("boat")
+                # add sword to being taken in trade
                 elif takeSword.collidepoint(event.pos):
                     takeInTrade.append("sword")
+                # add spear to being taken in trade
                 elif takeSpear.collidepoint(event.pos):
                     takeInTrade.append("spear")
+                # add net to being taken in trade
                 elif takeNet.collidepoint(event.pos):
                     takeInTrade.append("net")
+                # add people to being taken in trade
+                elif takePerson.collidepoint(event.pos):
+                    takeInTrade.append("people")
+                # add coconut to being taken in trade
+                elif takeCoconut.collidepoint(event.pos):
+                    takeInTrade.append("coconut")
+                # reset trade
                 elif resetButton.collidepoint(event.pos):
                     takeInTrade.clear()
                     giveInTrade.clear()
+                #start trade
                 elif tradeButton.collidepoint(event.pos):
+                    # calculate whether the trade commences or not
                     if tradeAI(giveInTrade,takeInTrade):
-
+                        #change the amount for the resources based on the trade
                         peopleAmount, coconutAmount, boatAmount, medicineAmount, blanketAmount, swordAmount, treeAmount, superTreeAmount, spearAmount, netAmount, takeInTrade, giveInTrade=trade(giveInTrade,takeInTrade,peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,swordAmount,treeAmount,superTreeAmount,spearAmount,netAmount)
+                #if user clicks off of trade window close it
                 elif window.collidepoint(event.pos)==False:
                     return peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,swordAmount,treeAmount,superTreeAmount,spearAmount,netAmount
         pygame.display.flip()
@@ -173,7 +204,7 @@ def tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmo
 
 
 def trade(giveInTrade, takeInTrade, peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,swordAmount,treeAmount,superTreeAmount,spearAmount,netAmount):
-
+    #add the amount of resources user is getting in the trad and subtract the resources the user is giving up in the trade
     return peopleAmount+takeInTrade.count("people")-giveInTrade.count("people"),coconutAmount+takeInTrade.count("coconut")-giveInTrade.count("coconut"),boatAmount+takeInTrade.count("boat")-giveInTrade.count("boat"),medicineAmount+takeInTrade.count("medicine")-giveInTrade.count("medicine"),blanketAmount+takeInTrade.count("blanket")-giveInTrade.count("blanket"),swordAmount+takeInTrade.count("sword")-giveInTrade.count("sword"),treeAmount+takeInTrade.count("tree")-giveInTrade.count("tree"),superTreeAmount+takeInTrade.count("super tree")-giveInTrade.count("super tree"),spearAmount+takeInTrade.count("spear")-giveInTrade.count("spear"),netAmount+takeInTrade.count("net")-giveInTrade.count("net"),takeInTrade.clear(),giveInTrade.clear()
 
 
@@ -184,75 +215,81 @@ def resourcesForWindow(peopleAmount, coconutAmount, boatAmount, blanketAmount, m
     while True:
         # resource window
         displayWindow()
-
-        display.text(f"Boats: {boatAmount}", settings.width // 20, settings.width - settings.width // 6.5,
-                     settings.height // 12, (255, 255, 255))
-        display.text(f"Blankets: {blanketAmount}", settings.width // 20, settings.width - settings.width // 5.3,
-                     settings.height // 6.75, (255, 255, 255))
-        display.text(f"Medicines: {medicineAmount}", settings.width // 20, settings.width - settings.width // 5,
-                     settings.height // 4.75, (255, 255, 255))
-        display.text(f"Unused Swords: {activeSwordAmount}", settings.width // 20, settings.width - settings.width // 3.75,
-                     settings.height // 3.7, (255, 255, 255))
-        display.text(f"Used Swords: {unactiveSwordAmount}", settings.width // 20, settings.width - settings.width // 4.25,
-                     settings.height // 3, (255, 255, 255))
-        display.text(f"Coconut Trees: {treeAmount}", settings.width // 20, settings.width - settings.width // 4,
-                     settings.height // 2.5, (255, 255, 255))
-        display.text(f"Super Coconut Trees: {superTreeAmount}", settings.width // 20, settings.width - settings.width // 3,
-                     settings.height // 2.15, (255, 255, 255))
-        display.text(f"Spears: {spearAmount}", settings.width // 20, settings.width - settings.width // 6,
-                     settings.height // 1.9, (255, 255, 255))
-        display.text(f"Nets: {netAmount}", settings.width // 20, settings.width - settings.width // 7.5,
-                     settings.height // 1.675, (255, 255, 255))
+        #display boat amount
+        display.text(f"Boats: {boatAmount}", settings.width // 20, settings.width - settings.width // 6.5,settings.height // 12, (255, 255, 255))
+        #display blanket amount
+        display.text(f"Blankets: {blanketAmount}", settings.width // 20, settings.width - settings.width // 5.3,settings.height // 6.75, (255, 255, 255))
+        #display medicine amount
+        display.text(f"Medicines: {medicineAmount}", settings.width // 20, settings.width - settings.width // 5,settings.height // 4.75, (255, 255, 255))
+        #display unused sword amount
+        display.text(f"Unused Swords: {activeSwordAmount}", settings.width // 20, settings.width - settings.width // 3.75,settings.height // 3.7, (255, 255, 255))
+        #display used sword amount
+        display.text(f"Used Swords: {unactiveSwordAmount}", settings.width // 20, settings.width - settings.width // 4.25,settings.height // 3, (255, 255, 255))
+        #display coconut tree amount
+        display.text(f"Coconut Trees: {treeAmount}", settings.width // 20, settings.width - settings.width // 4,settings.height // 2.5, (255, 255, 255))
+        #display super coconut tree amount
+        display.text(f"Super Coconut Trees: {superTreeAmount}", settings.width // 20, settings.width - settings.width // 3,settings.height // 2.15, (255, 255, 255))
+        #display spear amount
+        display.text(f"Spears: {spearAmount}", settings.width // 20, settings.width - settings.width // 6,settings.height // 1.9, (255, 255, 255))
+        #display net amount
+        display.text(f"Nets: {netAmount}", settings.width // 20, settings.width - settings.width // 7.5,settings.height // 1.675, (255, 255, 255))
+        #display the people and coconut amount
         peopleAndCoconuts(peopleAmount,coconutAmount)
 
 
-
+        #if user clicks on screen close the resource window
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 return
 
         pygame.display.flip()
 
+#outputs whether the number after being divided is still a whole number
 def whenDividingIsItAWholeNum(input, numCheckingFor):
-    if input//numCheckingFor == input/numCheckingFor:
-        return True
-    return False
+    return input//numCheckingFor == input/numCheckingFor
+
 
 
 
 def tradeAI(resourcesGiving, resourcesGetting):
     likelyHoodOfTrade=tradeValueFromArray(resourcesGiving)-tradeValueFromArray(resourcesGetting)-settings.likelyHoodOfTradeWithBoat
 
+    #minium trade likelyhodd is 0
     if likelyHoodOfTrade<0:
         likelyHoodOfTrade=0
 
+    #if the random number between 0 and trade likely hood is 0
     if random.randint(0,likelyHoodOfTrade)==0:
+        #then return true
         return True
     else:
+        #otherwise return false
         return False
 
+#display for the resouce and trade window
 def displayWindow():
+    #inside of window
     window = display.rect((165, 85, 25), settings.width * 0.5, settings.height * 0.5, settings.width * 0.96,
                           settings.height * 0.96, 0)
+    #border of window
     display.rect((0, 0, 0), settings.width * 0.5, settings.height * 0.5, settings.width * 0.96, settings.height * 0.96,
                  settings.width // 400)
     return window
 
-
+#display the people and coconut amount in the top right corner
 def peopleAndCoconuts(peopleAmount, coconutAmount):
     display.text(f"People: {peopleAmount}", settings.width * 0.05, settings.width * 0.15384,settings.height * 0.08333,(0, 0, 0))
     display.text(f"Coconut: {coconutAmount}", settings.width * 0.05, settings.width * 0.15384,settings.height * 0.148148,(0, 0, 0))
 
+#return the value of the resources using trade value function
 def tradeValueFromArray(inputArray):
-    temp= tradeValue(inputArray.count("people"),inputArray.count("coconut"),inputArray.count("tree"),inputArray.count("super tree"),inputArray.count("boat"),inputArray.count("blanket"),inputArray.count("medicine"),inputArray.count("sword"),inputArray.count("spear"),inputArray.count("net"))
+    return tradeValue(inputArray.count("people"),inputArray.count("coconut"),inputArray.count("tree"),inputArray.count("super tree"),inputArray.count("boat"),inputArray.count("blanket"),inputArray.count("medicine"),inputArray.count("sword"),inputArray.count("spear"),inputArray.count("net"))
 
-    print(temp)
-    return temp
-
+#multiply each resource to be traded by the value that has been set for each resource
 def tradeValue(peopleAmount, coconutAmount, treeAmount, superTreeAmount, boatAmount, blanketAmount, medicineAmount, swordAmount, spearAmount, netAmount):
     return peopleAmount*settings.peopleValue+coconutAmount*settings.coconutValue+treeAmount*settings.treeValue+superTreeAmount*settings.superTreeValue+boatAmount*settings.boatValue+blanketAmount*settings.blanketValue+medicineAmount+swordAmount*settings.swordValue+spearAmount*settings.spearValue+netAmount*settings.netValue
 
-
+#remove all of one element from array
 def removeAllFromArray(array, elementToBeRemoved):
     tempArray=array.remove(elementToBeRemoved)
     while tempArray!=array:
@@ -261,12 +298,13 @@ def removeAllFromArray(array, elementToBeRemoved):
 
     return array
 
-
+#get the absolute value of the input
 def absoluteValue(input):
     if(input<0):
         input*=-1
     return input
 
+#output positive only numbers
 def positiveOnly(input):
     if(input<0):
         input=0

@@ -10,6 +10,7 @@ def read_file(file):
     f = open(f"{file}.txt", "r+")
     return f.read().split("\n")
 
+#write in file
 def write_file(StringToBeWritten, file_name):
     file1 = open(f"{file_name}.txt", "w")
     file1.writelines(StringToBeWritten)

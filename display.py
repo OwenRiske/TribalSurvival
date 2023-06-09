@@ -1,4 +1,4 @@
-#Owen Riske
+# Owen Riske
 
 import pygame
 import settings
@@ -56,19 +56,19 @@ def input_box(width, height, x, y):
 
 
 # setup image
-def image(im,x,y):
+def image(im, x, y):
     image = pygame.image.load(f"image/{im}")
     imageRect = image.get_rect()
-    imageRect.x=x
-    imageRect.y=y
+    imageRect.x = x
+    imageRect.y = y
     settings.screen.blit(image, imageRect)
     return imageRect
 
 
 # resize image
-def image_resize(image,width,height):
+def image_resize(image, width, height):
     image1 = Image.open(f"image/{image}")
-    image1 = image1.resize((int(width),int(height)), Image.ANTIALIAS)
+    image1 = image1.resize((int(width), int(height)), Image.ANTIALIAS)
     image1.save(fp=f"image/new{image}")
     return image1
 
@@ -99,8 +99,6 @@ def button(message, size, textsize, x, y, colour1):
     button = image("newbutton_layout.png", x - size // 2, y - size // 4)
     text(message, textsize // 6, x, y, colour1)
     return button
-
-
 
 
 # clickable image
@@ -166,9 +164,6 @@ def colour(colour):
     # multiply line text
 
 
-
-
-
 def multi_text(size, x, y, colour, message1, message2, message3, message4, message5, message6, message7, message8,
                message9, message10, message11):
     if message1 != "":
@@ -197,9 +192,6 @@ def multi_text(size, x, y, colour, message1, message2, message3, message4, messa
         text("ERROR", size, x, y, colour)
 
 
-
-
-
 # background function
 def background(backgroundImage):
     image_resize(f"{backgroundImage}", settings.width, settings.width)
@@ -216,28 +208,42 @@ def circle(radius, thickness, centerX, centerY, colour):
     pygame.draw.circle(settings.screen,
                        colour, (centerX, centerY), radius, thickness)
 
+#display the adjust num
+def adjustableNum(messageTitle, message, y, textColour):
+    #title to explain what it is for
+    text(messageTitle, settings.width * 0.025, settings.width * 0.5, y - settings.height * 0.05, textColour)
 
-def adjustableNum(messageTitle,message, y, textColour):
-    text(messageTitle,settings.width * 0.025, settings.width * 0.5, y-settings.height * 0.05,textColour)
-
-    text(message, settings.width * 0.05, settings.width * 0.5,y, textColour)
-    smaller=button("<", settings.width * 0.1, settings.width * 0.25,settings.width * 0.375, y, (0, 0, 0))
-    bigger=button(">", settings.width * 0.1, settings.width * 0.25,settings.width * 0.625, y, (0, 0, 0))
+    #display number to be adjusted
+    text(message, settings.width * 0.05, settings.width * 0.5, y, textColour)
+    #button for decreasing the number
+    smaller = button("<", settings.width * 0.1, settings.width * 0.25, settings.width * 0.375, y, (0, 0, 0))
+    #button for increasing the number
+    bigger = button(">", settings.width * 0.1, settings.width * 0.25, settings.width * 0.625, y, (0, 0, 0))
     return smaller, bigger
 
+
 def adjustableNumButtonCollidePoint(smallerButton, biggerButton, numToBeChanged, event):
-    if smallerButton.collidepoint(event.pos) and numToBeChanged>0:
+    #if user is pressing the smaller button  and number is greater than 0
+    if smallerButton.collidepoint(event.pos) and numToBeChanged > 0:
+        #subtract one from the num
         numToBeChanged -= 1
+    # if user is pressing the bigger button
     elif biggerButton.collidepoint(event.pos):
+        #add one to num
         numToBeChanged += 1
 
     return numToBeChanged
 
+
+# get the collide point for the adjustable num with maximum
 def adjustableNumButtonCollidePointWithMax(smallerButton, biggerButton, numToBeChanged, max, event):
-    if smallerButton.collidepoint(event.pos) and numToBeChanged>0:
+    #if user is pressing the smaller button  and number is greater than 0
+    if smallerButton.collidepoint(event.pos) and numToBeChanged > 0:
+        #subtract one from the num
         numToBeChanged -= 1
-    elif biggerButton.collidepoint(event.pos) and numToBeChanged<max:
+    #if user is pressing the bigger button  and number is less than the maximum
+    elif biggerButton.collidepoint(event.pos) and numToBeChanged < max:
+        #add one to num
         numToBeChanged += 1
 
     return numToBeChanged
-
