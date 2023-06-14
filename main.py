@@ -6,6 +6,8 @@ import display
 import pygame
 import options
 
+display.pygame_present("background.png", "Tribal Survival")
+
 # boolean for determining to if the user is quitting
 quitting = False
 

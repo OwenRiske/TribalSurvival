@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>settings.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7ec3e6;}
+.s1 { color: #ebebeb;}
+.s2 { color: #cc7832;}
+.s3 { color: #33ccff; font-weight: bold;}
+.s4 { color: #ed864a; font-weight: bold;}
+.s5 { color: #54b33e;}
+.s6 { color: #ed864a;}
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#131314">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+settings.py</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">#Owen Riske</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">import </span><span class="s1">pygame</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s2">import </span><span class="s1">File</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">#preset window size</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s1">width=</span><span class="s3">1080</span>
+<a name="l8"><span class="ln">8    </span></a><span class="s1">height=width*</span><span class="s3">0.75</span>
+<a name="l9"><span class="ln">9    </span></a>
+<a name="l10"><span class="ln">10   </span></a><span class="s0">#screen display</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s1">screen=pygame.display.set_mode((width</span><span class="s4">,</span><span class="s1">height))</span>
+<a name="l12"><span class="ln">12   </span></a>
+<a name="l13"><span class="ln">13   </span></a>
+<a name="l14"><span class="ln">14   </span></a><span class="s0">#get all the settings that have been saved on the file settings.txt</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s1">options=File.read_file(</span><span class="s5">&quot;settings&quot;</span><span class="s1">)</span>
+<a name="l16"><span class="ln">16   </span></a>
+<a name="l17"><span class="ln">17   </span></a>
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a><span class="s0">#settings that can be changed</span>
+<a name="l20"><span class="ln">20   </span></a><span class="s0">#increased likelyhood of trade with a boat</span>
+<a name="l21"><span class="ln">21   </span></a><span class="s1">likelyHoodOfTradeWithBoat=int(options[</span><span class="s3">0</span><span class="s1">])</span>
+<a name="l22"><span class="ln">22   </span></a>
+<a name="l23"><span class="ln">23   </span></a><span class="s0">#resource value in trade</span>
+<a name="l24"><span class="ln">24   </span></a><span class="s1">peopleValue=int(options[</span><span class="s3">1</span><span class="s1">])</span>
+<a name="l25"><span class="ln">25   </span></a><span class="s1">coconutValue=int(options[</span><span class="s3">2</span><span class="s1">])</span>
+<a name="l26"><span class="ln">26   </span></a><span class="s1">treeValue=int(options[</span><span class="s3">3</span><span class="s1">])</span>
+<a name="l27"><span class="ln">27   </span></a><span class="s1">superTreeValue=int(options[</span><span class="s3">4</span><span class="s1">])</span>
+<a name="l28"><span class="ln">28   </span></a><span class="s1">boatValue=int(options[</span><span class="s3">5</span><span class="s1">])</span>
+<a name="l29"><span class="ln">29   </span></a><span class="s1">blanketValue=int(options[</span><span class="s3">6</span><span class="s1">])</span>
+<a name="l30"><span class="ln">30   </span></a><span class="s1">medicineValue=int(options[</span><span class="s3">7</span><span class="s1">])</span>
+<a name="l31"><span class="ln">31   </span></a><span class="s1">swordValue=int(options[</span><span class="s3">8</span><span class="s1">])</span>
+<a name="l32"><span class="ln">32   </span></a><span class="s1">spearValue=int(options[</span><span class="s3">9</span><span class="s1">])</span>
+<a name="l33"><span class="ln">33   </span></a><span class="s1">netValue=int(options[</span><span class="s3">10</span><span class="s1">])</span>
+<a name="l34"><span class="ln">34   </span></a>
+<a name="l35"><span class="ln">35   </span></a><span class="s0">#generator information</span>
+<a name="l36"><span class="ln">36   </span></a><span class="s1">treeTurnsForYeild=int(options[</span><span class="s3">11</span><span class="s1">])</span>
+<a name="l37"><span class="ln">37   </span></a><span class="s1">treeYeild=int(options[</span><span class="s3">12</span><span class="s1">])</span>
+<a name="l38"><span class="ln">38   </span></a><span class="s1">superTreeTurnsForYeild=int(options[</span><span class="s3">13</span><span class="s1">])</span>
+<a name="l39"><span class="ln">39   </span></a><span class="s1">superTreeYeild=int(options[</span><span class="s3">14</span><span class="s1">])</span>
+<a name="l40"><span class="ln">40   </span></a><span class="s1">spearTurnsForYeild=int(options[</span><span class="s3">15</span><span class="s1">])</span>
+<a name="l41"><span class="ln">41   </span></a><span class="s1">spearYeild=int(options[</span><span class="s3">16</span><span class="s1">])</span>
+<a name="l42"><span class="ln">42   </span></a><span class="s1">netTurnsForYeild=int(options[</span><span class="s3">17</span><span class="s1">])</span>
+<a name="l43"><span class="ln">43   </span></a><span class="s1">netYeild=int(options[</span><span class="s3">20</span><span class="s1">])</span>
+<a name="l44"><span class="ln">44   </span></a>
+<a name="l45"><span class="ln">45   </span></a><span class="s0">#disaster information</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s1">peopleKilledInBearAttack=int(options[</span><span class="s3">19</span><span class="s1">])</span>
+<a name="l47"><span class="ln">47   </span></a><span class="s1">bearAttackLikelyHood=int(options[</span><span class="s3">20</span><span class="s1">])</span>
+<a name="l48"><span class="ln">48   </span></a><span class="s1">treeDiseaseLikelyhood=int(options[</span><span class="s3">21</span><span class="s1">])</span>
+<a name="l49"><span class="ln">49   </span></a><span class="s1">fishDiseaseLikelyhood=int(options[</span><span class="s3">22</span><span class="s1">])</span>
+<a name="l50"><span class="ln">50   </span></a><span class="s1">animalDiseaseLikelyhood=int(options[</span><span class="s3">23</span><span class="s1">])</span>
+<a name="l51"><span class="ln">51   </span></a><span class="s1">volcanoLikelyhood=int(options[</span><span class="s3">24</span><span class="s1">])</span>
+<a name="l52"><span class="ln">52   </span></a><span class="s1">coldNightLikelyhood=int(options[</span><span class="s3">25</span><span class="s1">])</span>
+<a name="l53"><span class="ln">53   </span></a><span class="s1">clearDayLikelyhood=int(options[</span><span class="s3">26</span><span class="s1">])</span>
+<a name="l54"><span class="ln">54   </span></a>
+<a name="l55"><span class="ln">55   </span></a><span class="s0">#win condition</span>
+<a name="l56"><span class="ln">56   </span></a><span class="s1">amountOfPeopleToWin=int(options[</span><span class="s3">27</span><span class="s1">])</span>
+<a name="l57"><span class="ln">57   </span></a>
+<a name="l58"><span class="ln">58   </span></a>
+<a name="l59"><span class="ln">59   </span></a><span class="s0">#reset the screen size</span>
+<a name="l60"><span class="ln">60   </span></a><span class="s2">def </span><span class="s1">changeScreenSize():</span>
+<a name="l61"><span class="ln">61   </span></a>    <span class="s1">pygame.display.set_mode((width</span><span class="s4">,</span><span class="s1">height))</span>
+<a name="l62"><span class="ln">62   </span></a>
+<a name="l63"><span class="ln">63   </span></a><span class="s0">#save the settings that the user can change</span>
+<a name="l64"><span class="ln">64   </span></a><span class="s2">def </span><span class="s1">save():</span>
+<a name="l65"><span class="ln">65   </span></a>    <span class="s1">File.write_file(</span><span class="s5">f&quot;</span><span class="s6">{</span><span class="s1">likelyHoodOfTradeWithBoat</span><span class="s6">}\n{</span><span class="s1">peopleValue</span><span class="s6">}\n{</span><span class="s1">coconutValue</span><span class="s6">}\n{</span><span class="s1">treeValue</span><span class="s6">}\n{</span><span class="s1">superTreeValue</span><span class="s6">}\n{</span><span class="s1">boatValue</span><span class="s6">}\n{</span><span class="s1">blanketValue</span><span class="s6">}\n{</span><span class="s1">medicineValue</span><span class="s6">}\n{</span><span class="s1">swordValue</span><span class="s6">}\n{</span><span class="s1">spearValue</span><span class="s6">}\n{</span><span class="s1">netValue</span><span class="s6">}\n{</span><span class="s1">treeTurnsForYeild</span><span class="s6">}\n{</span><span class="s1">treeYeild</span><span class="s6">}\n{</span><span class="s1">superTreeTurnsForYeild</span><span class="s6">}\n{</span><span class="s1">superTreeYeild</span><span class="s6">}\n{</span><span class="s1">spearTurnsForYeild</span><span class="s6">}\n{</span><span class="s1">spearYeild</span><span class="s6">}\n{</span><span class="s1">netTurnsForYeild</span><span class="s6">}\n{</span><span class="s1">netYeild</span><span class="s6">}\n{</span><span class="s1">peopleKilledInBearAttack</span><span class="s6">}\n{</span><span class="s1">bearAttackLikelyHood</span><span class="s6">}\n{</span><span class="s1">treeDiseaseLikelyhood</span><span class="s6">}\n{</span><span class="s1">fishDiseaseLikelyhood</span><span class="s6">}\n{</span><span class="s1">animalDiseaseLikelyhood</span><span class="s6">}\n{</span><span class="s1">volcanoLikelyhood</span><span class="s6">}\n{</span><span class="s1">coldNightLikelyhood</span><span class="s6">}\n{</span><span class="s1">clearDayLikelyhood</span><span class="s6">}\n{</span><span class="s1">amountOfPeopleToWin</span><span class="s6">}</span><span class="s5">&quot;</span><span class="s4">,</span><span class="s5">&quot;settings&quot;</span><span class="s1">)</span>
+<a name="l66"><span class="ln">66   </span></a></pre>
+</body>
+</html>

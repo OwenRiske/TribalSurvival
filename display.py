@@ -112,7 +112,7 @@ def clickable_image(Image, message, size, textsize, x, y, colour):
 # set logo and game name
 def pygame_present(logo, name):
     image_resize(logo, 32, 32)
-    Logo = pygame.image.load(f"{logo}")
+    Logo = pygame.image.load(f"image/{logo}")
     pygame.display.set_icon(Logo)
     pygame.display.set_caption(name)
 
