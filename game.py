@@ -25,7 +25,7 @@ def startGame():
     netAmount=0
 
     #makes it so the player gets a random resource
-    peopleAmount,coconutAmount,boatAmount,blanketAmount,netAmount,activeSwordAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,netAmount,activeSwordAmount, treeAmount,superTreeAmount,spearAmount,netAmount)
+    peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount=toolBox.buyPerson(peopleAmount,coconutAmount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount)
 
     #array for the disaster that the user will get
     disasters=[]
@@ -93,7 +93,16 @@ def startGame():
                     #bear attack results
                     peopleAmount=disaster.bearAttack(peopleAmount,unactiveSwordAmount+activeSwordAmount, disasters)
 
-                #dispaly reource window
+                    #player loses
+                    if peopleAmount<=0:
+                        toolBox.loseScreen()
+                        return
+                    #player wins
+                    elif peopleAmount>=settings.amountOfPeopleToWin:
+                         toolBox.winScreen()
+                         return
+
+                #display resource window
                 elif resourceButton.collidepoint(event.pos):
                     toolBox.resourcesForWindow(peopleAmount, coconutAmount, boatAmount, blanketAmount, medicineAmount, activeSwordAmount, unactiveSwordAmount, treeAmount, superTreeAmount, spearAmount, netAmount)
                 #start trade
@@ -103,10 +112,5 @@ def startGame():
                 #quit game
                 elif quitButton.collidepoint(event.pos):
                     return
-
-        #player loses
-        if peopleAmount<=0:
-            return
-
 
         pygame.display.flip()

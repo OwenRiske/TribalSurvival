@@ -86,6 +86,8 @@ def settingAlterMenu():
         if optionMenu=="Misc":
             #determines the likelyhoodofTrade
             smallerBoatLikelyHoodButton, biggerBoatLikelyHoodButton=display.adjustableNum("Boat Trade Likely Hood", str(settings.likelyHoodOfTradeWithBoat),settings.height*0.075,(0,0,0))
+            #determines the size of the win condition
+            smallerWinCondition, biggerWinCondition=display.adjustableNum("Amount of People Needed to Win", str(settings.amountOfPeopleToWin),settings.height*0.175,(0,0,0))
 
         #if menu is disasters then show disaster options
         elif optionMenu=="Disasters":
@@ -190,6 +192,8 @@ def settingAlterMenu():
                 if optionMenu == "Misc":
                     #allow change to trade likely hood
                     settings.likelyHoodOfTradeWithBoat=display.adjustableNumButtonCollidePoint(smallerBoatLikelyHoodButton,biggerBoatLikelyHoodButton,settings.likelyHoodOfTradeWithBoat,event)
+                    #allow change to the amount of people need for the win condition
+                    settings.amountOfPeopleToWin=display.adjustableNumButtonCollidePoint(smallerWinCondition,biggerWinCondition,settings.amountOfPeopleToWin,event)
 
                 #if option menu disaster then
                 elif optionMenu == "Disaster":

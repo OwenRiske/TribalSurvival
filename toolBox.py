@@ -75,8 +75,8 @@ def buyPerson(peopleAmount, coconutCount, boatAmount, blanketAmount, medicineAmo
         elif (card==8):
             netAmount+=1
         #return the resources and the people and coconuts
-        return peopleAmount+1, coconutCount-1, boatAmount,blanketAmount,medicineAmount,activeSwordAmount
-    return peopleAmount,coconutCount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount
+        return peopleAmount+1, coconutCount-1, boatAmount,blanketAmount,medicineAmount,activeSwordAmount, treeAmount, superTreeAmount,spearAmount,netAmount
+    return peopleAmount,coconutCount,boatAmount,blanketAmount,medicineAmount,activeSwordAmount,treeAmount,superTreeAmount,spearAmount,netAmount
 
 def tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmount,swordAmount,treeAmount,superTreeAmount,spearAmount,netAmount):
 
@@ -111,7 +111,7 @@ def tradeButtons(peopleAmount,coconutAmount,boatAmount,medicineAmount,blanketAmo
         takeSword = display.button("Take Sword", settings.width * 0.1775, settings.width*0.182, settings.width * 0.31,settings.height * 0.25, (0, 0, 0))
         takeBlanket = display.button("Take Blanket", settings.width * 0.1775, settings.width*0.16, settings.width * 0.495,  settings.height * 0.25, (0, 0, 0))
         takeMedicine = display.button("Take Medicine", settings.width * 0.1775, settings.width*0.145, settings.width * 0.685,   settings.height * 0.25, (0, 0, 0))
-        takeCoconut=display.button("Give Coconut",settings.width*0.1775,settings.width*0.145,settings.width*0.875,settings.height*0.25,(0,0,0))
+        takeCoconut=display.button("Take Coconut",settings.width*0.1775,settings.width*0.145,settings.width*0.875,settings.height*0.25,(0,0,0))
         takeTree = display.button("Take Tree", settings.width * 0.1775, settings.width*0.2, settings.width * 0.125,settings.height * 0.425, (0, 0, 0))
         takeSuperTree = display.button("Take Super Tree", settings.width * 0.1775, settings.width*0.125,    settings.width * 0.31, settings.height * 0.425, (0, 0, 0))
         takeSpear = display.button("Take Spear", settings.width * 0.1775, settings.width*0.175, settings.width * 0.495,settings.height * 0.425, (0, 0, 0))
@@ -297,6 +297,41 @@ def removeAllFromArray(array, elementToBeRemoved):
         tempArray = array.remove(elementToBeRemoved)
 
     return array
+
+#win screen
+def winScreen():
+
+    pygame.init()
+
+    while True:
+        #display win screen
+        settings.screen.fill((90,235,90))
+        display.text("Win!",settings.width*0.1,settings.width*0.5,settings.height*0.5,(0,0,0))
+
+        # if user clicks on screen close the win screen
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                return
+
+        pygame.display.flip()
+
+#lose screen
+def loseScreen():
+
+    pygame.init()
+
+    while True:
+        #display lose screen
+        settings.screen.fill((235,50,50))
+        display.text("Lose",settings.width*0.1,settings.width*0.5,settings.height*0.5,(0,0,0))
+
+        # if user clicks on screen close the lose screen
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                return
+
+        pygame.display.flip()
+
 
 #get the absolute value of the input
 def absoluteValue(input):

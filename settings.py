@@ -52,6 +52,9 @@ volcanoLikelyhood=int(options[24])
 coldNightLikelyhood=int(options[25])
 clearDayLikelyhood=int(options[26])
 
+#win condition
+amountOfPeopleToWin=int(options[27])
+
 
 #reset the screen size
 def changeScreenSize():
@@ -59,4 +62,4 @@ def changeScreenSize():
 
 #save the settings that the user can change
 def save():
-    File.write_file(f"{likelyHoodOfTradeWithBoat}\n{peopleValue}\n{coconutValue}\n{treeValue}\n{superTreeValue}\n{boatValue}\n{blanketValue}\n{medicineValue}\n{swordValue}\n{spearValue}\n{netValue}\n{treeTurnsForYeild}\n{treeYeild}\n{superTreeTurnsForYeild}\n{superTreeYeild}\n{spearTurnsForYeild}\n{spearYeild}\n{netTurnsForYeild}\n{netYeild}\n{peopleKilledInBearAttack}\n{bearAttackLikelyHood}\n{treeDiseaseLikelyhood}\n{fishDiseaseLikelyhood}\n{animalDiseaseLikelyhood}\n{volcanoLikelyhood}\n{coldNightLikelyhood}\n{clearDayLikelyhood}","settings")
+    File.write_file(f"{likelyHoodOfTradeWithBoat}\n{peopleValue}\n{coconutValue}\n{treeValue}\n{superTreeValue}\n{boatValue}\n{blanketValue}\n{medicineValue}\n{swordValue}\n{spearValue}\n{netValue}\n{treeTurnsForYeild}\n{treeYeild}\n{superTreeTurnsForYeild}\n{superTreeYeild}\n{spearTurnsForYeild}\n{spearYeild}\n{netTurnsForYeild}\n{netYeild}\n{peopleKilledInBearAttack}\n{bearAttackLikelyHood}\n{treeDiseaseLikelyhood}\n{fishDiseaseLikelyhood}\n{animalDiseaseLikelyhood}\n{volcanoLikelyhood}\n{coldNightLikelyhood}\n{clearDayLikelyhood}\n{amountOfPeopleToWin}","settings")
